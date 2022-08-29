@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-func ReadImage(pathToFile string, format string) image.Image {
+func ReadImage(pathToFile string) image.Image {
 	reader, err := os.Open(pathToFile)
 	if err != nil {
 		log.Fatal(err)
