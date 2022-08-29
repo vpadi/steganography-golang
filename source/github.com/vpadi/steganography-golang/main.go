@@ -9,7 +9,6 @@ import (
 	"strings"
 
 	"github.com/vpadi/steganography-golang/steganography"
-	//"github.com/vpadi/steganography-golang/steganography"
 )
 
 func readMessage() {
@@ -55,7 +54,9 @@ func writeMessage() {
 		}
 	}
 
-	// TODO: añadir terminator y guardar imagen
+	imageData.
+
+	// TODO: añadir terminator (ASCII 00) y guardar imagen
 
 	/* i = 0
 	for y := imageBounds.Min.Y; y < imageBounds.Max.Y && i < len(messageToWrite); y++ {
