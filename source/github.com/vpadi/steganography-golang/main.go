@@ -39,10 +39,15 @@ func writeMessage() {
 	cypherImage := image.NewRGBA(image.Rect(0, 0, imageBounds.Dx(), imageBounds.Dy()))
 	draw.Draw(cypherImage, cypherImage.Bounds(), imageData, imageBounds.Min, draw.Src)
 
-	for y := imageBounds.Min.Y; y < imageBounds.Max.Y && i < len(messageToWrite); y++ {
-		for x := imageBounds.Min.X; x < imageBounds.Max.X && i < len(messageToWrite); x++ {
+	for y := imageBounds.Min.Y; y < imageBounds.Max.Y && i <= len(messageToWrite); y++ {
+		for x := imageBounds.Min.X; x < imageBounds.Max.X && i <= len(messageToWrite); x++ {
 			r, g, b, a := cypherImage.At(x, y).RGBA()
-			letterBinary := messageToWrite[i]
+
+			letterBinary := byte(0)
+
+			if i < len(messageToWrite) {
+				letterBinary = messageToWrite[i]
+			}
 
 			r = r & uint32((letterBinary>>6)|0b11111100)
 			g = g & uint32((letterBinary>>4)|0b11111100)
@@ -53,10 +58,6 @@ func writeMessage() {
 			i++
 		}
 	}
-
-	imageData.
-
-	// TODO: añadir terminator (ASCII 00) y guardar imagen
 
 	/* i = 0
 	for y := imageBounds.Min.Y; y < imageBounds.Max.Y && i < len(messageToWrite); y++ {
